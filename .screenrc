@@ -47,9 +47,13 @@ bindkey -k k9 screen
 # bind F10 to rename current screen window
 bindkey -k k; title
 
-#  for putty
+# for putty
 bindkey ^[[D prev #ctrl + left   , move to previous window
 bindkey ^[[C next # ctrl+ right , move to next window
+
+# for gnome
+bindkey "^[[1;5C"    next  # Ctrl-Right
+bindkey "^[[1;5D"    prev  # Ctrl-Left
 
 # remove some stupid / dangerous key bindings
 bind s
