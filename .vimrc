@@ -22,7 +22,11 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'finbarrocallaghan/highlights.vim'
 Plugin 'vim-scripts/desert-warm-256'
 Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'vim-fugitive'
+Plugin 'tpope/vim-fugitive'
+"Plugin 'wookayin/fzf-ripgrep.vim'
+Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plugin 'junegunn/fzf.vim'
+" Plugin 'Vimjas/vim-python-pep8-indent'
 
 call vundle#end()
 
@@ -147,10 +151,10 @@ map <f6> :MRU<CR>
 "map 2 :tabclose<CR>
 map J : tabprevious<CR>
 map K : tabnext<CR>
-map <leader>y "+y
-map <leader>p "+p
-map <C-a> <esc>ggVG<CR>
-"noremap <C-t> <C-o>
+" map <leader>y "+y
+" map <leader>p "+p
+" map <C-a> <esc>ggVG<CR>
+map <C-z> :set et\|retab<CR>
 
 " SWP or backup files settings
 set nobackup
@@ -159,6 +163,10 @@ set noswapfile
 " set backupdir=~/.vim/backup//
 
 " Ag, the silver searcher
-map <C-\> :execute "Ag " . expand("<cword>") <CR>
-nnoremap <leader>ag :execute "LAg " . expand("<cword>") <CR>
+"map <C-\> :execute "Ag " . expand("<cword>") <CR>
+"nnoremap <leader>ag :execute "LAg " . expand("<cword>") <CR>
+
+nnoremap <silent> <C-f> :Files!<CR>
+nnoremap <C-p> :GFiles!<Cr>
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
