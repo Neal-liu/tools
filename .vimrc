@@ -1,5 +1,5 @@
 set nocompatible
-filetype off
+" filetype off
 
 " Plugin definition
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -170,3 +170,6 @@ nnoremap <silent> <C-f> :Files!<CR>
 nnoremap <C-p> :GFiles!<Cr>
 command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
 
+" Specific settings for pyhton files
+filetype plugin on
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=4
