@@ -1,0 +1,14 @@
+[user]
+        name = Neal Liu
+        email = neal_liu@aspeedtech.com
+[alias]
+        br = branch
+        st = status
+	cite = show --abbrev=12 --format='commit %h (\"%s\")' -s
+[core]
+        editor = vim
+[sendemail]
+        smtpserver = mail.aspeedtech.com
+        smtpserverport = 25
+        smtpuser = neal_liu
+        suppresscc = self
